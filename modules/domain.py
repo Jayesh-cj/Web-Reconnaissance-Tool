@@ -34,6 +34,7 @@ def is_domain_resolvable(target):
 
 
 
+# Check http details
 def check_http(target):
     for scheme in ['https', 'http']:
         url = f"{scheme}://{target}"
@@ -57,6 +58,7 @@ def check_http(target):
 
 
 
+# Finalize target info
 def check_target(target):
     try:
         domain = sanitize_domain(target)
