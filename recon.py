@@ -2,6 +2,7 @@ import argparse
 
 from modules.dns_enum import dns_records
 from modules.domain import check_target
+from modules.ip_info import get_ip_info
 from modules.whois_lookup import get_whois_data
 
 def main():
@@ -99,9 +100,12 @@ def main():
             print()
 
             dns_records(args.target)
-            
+
         elif args.ip:
-            print("IP")
+            check_target(args.target)
+            print()
+
+            get_ip_info(args.target)
 
         elif args.headers:
             print("Headers")

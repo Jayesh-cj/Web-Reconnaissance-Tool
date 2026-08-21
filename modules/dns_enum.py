@@ -3,6 +3,12 @@ import dns.resolver
 
 # DNS records
 def dns_records(target):
+    if target.startswith('www'):
+        domain = target[4:]
+    
+    else:
+        domain = target
+
     record_types = [
         "A",
         "AAAA",
@@ -19,7 +25,7 @@ def dns_records(target):
     for type in record_types:
 
         try:
-            records = dns.resolver.resolve(target, type)
+            records = dns.resolver.resolve(domain, type)
 
             if type == "SOA":
                 soa = records[0]
