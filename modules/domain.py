@@ -79,7 +79,7 @@ def check_target(target):
 
     if check_http(domain):
         print("\n[+] Target Details")
-        print("─" * 45)
+        print("─" * 50)
 
         print(f"Target          : {domain}")
         print(f"URL             : {http_info['url']}")
@@ -93,7 +93,7 @@ def check_target(target):
         else:
             print(f"Web Accessible  : {False}")
 
-        print("─" * 45)
+        print("─" * 50)
 
     else:
         print("[!] Domain exists, but web server is not accessible")
