@@ -4,6 +4,7 @@ from modules.dns_enum import dns_records
 from modules.domain import check_target
 from modules.headers import get_security_headers
 from modules.ip_info import get_ip_info
+from modules.robots import check_robots
 from modules.ssl import ssl_certificate
 from modules.whois_lookup import get_whois_data
 
@@ -122,7 +123,10 @@ def main():
             ssl_certificate(args.target)
 
         elif args.robots:
-            print("robots.txt")
+            check_target(args.target)
+            print()
+
+            check_robots(args.target)
 
         elif args.sitemap:
             print("Sitemap.xml")
