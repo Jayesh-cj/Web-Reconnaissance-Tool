@@ -1,12 +1,27 @@
+import textwrap
+
 import requests
 from icecream.icecream import ic
+
+
+def print_header_value(value, width=100):
+
+    wrapped = textwrap.fill(
+        value,
+        width=width,
+        initial_indent="    ",
+        subsequent_indent="    ",
+        break_long_words=False,
+        break_on_hyphens=False
+    )
+
+    print(wrapped)
 
 
 def get_security_headers(target):
     url = f"http://{target}"
 
     security_headers = [
-        "Content-Length",
         "Strict-Transport-Security",
         "Content-Security-Policy",
         "X-Content-Type-Options",
@@ -40,10 +55,10 @@ def get_security_headers(target):
         value = response.headers.get(header)
 
         if value:
-            print(f"\n[+] {header:<10}: Present")
-            print(f"    Value: {value}")
+            print(f"\n[+] {header}: Present")
+            print_header_value(value)
 
         else:
-            print(f"\n[-] {header:<10}: Missing")
+            print(f"\n[-] {header}: Missing")
 
     print("-" * 50)
