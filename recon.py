@@ -136,7 +136,28 @@ def main():
             check_sitemap(args.target)
 
         elif args.all:
-            print("All modules")
+            check_target(args.target)
+            print()
+
+            get_whois_data(args.target)
+            print()
+
+            dns_records(args.target)
+            print()
+
+            get_ip_info(args.target)
+            print()
+
+            get_security_headers(args.target)
+            print()
+
+            ssl_certificate(args.target)
+            print()
+
+            check_robots(args.target)
+            print()
+
+            check_sitemap(args.target)
 
         else:
             parser.print_help()
