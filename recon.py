@@ -2,6 +2,7 @@ import argparse
 
 from modules.dns_enum import dns_records
 from modules.domain import check_target
+from modules.headers import get_security_headers
 from modules.ip_info import get_ip_info
 from modules.whois_lookup import get_whois_data
 
@@ -108,7 +109,10 @@ def main():
             get_ip_info(args.target)
 
         elif args.headers:
-            print("Headers")
+            check_target(args.target)
+            print()
+
+            get_security_headers(args.target)
 
         elif args.ssl:
             print("SSL")

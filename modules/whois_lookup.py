@@ -61,7 +61,7 @@ def get_whois_data(target):
 
         # Print information
         print("\n[+] WHOIS / RDAP Information")
-        print("─" * 50)
+        print("-" * 50)
 
         print(f"Domain Name     : {data.get('ldhName')}")
         print(f"Registrar       : {registrar}")
@@ -78,7 +78,7 @@ def get_whois_data(target):
         for nameserver in name_servers:
             print(f"                  {nameserver}")
 
-        print("─" * 50)
+        print("-" * 50)
     
     except requests.RequestException as e:
         print(f"[-] RDAP lookup failed!")

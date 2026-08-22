@@ -49,6 +49,7 @@ def check_http(target):
                 "status_code" : response.status_code,
                 "url" : response.url,
                 "response_time" : response.elapsed.total_seconds(),
+                "server" : response.headers.get('Server', 'Not Found')
             }
         
         except requests.RequestException:
@@ -73,13 +74,13 @@ def check_target(target):
     if not ip:
         print("[-] Domain does not resolve")
 
-        return None
+        return False
 
     http_info = check_http(domain)
 
     if check_http(domain):
         print("\n[+] Target Details")
-        print("─" * 50)
+        print("-" * 50)
 
         print(f"Target          : {domain}")
         print(f"URL             : {http_info['url']}")
@@ -87,15 +88,17 @@ def check_target(target):
         print(f"Protocol        : {http_info['protocol']}")
         print(f"HTTP Status     : {http_info['status_code']}")
         print(f"Response Time   : {http_info['response_time']:.2f}s")
+        print(f"Server          : {http_info['server']}")
+
         if http_info:
             print(f"Web Accessible  : {True}")
 
         else:
             print(f"Web Accessible  : {False}")
 
-        print("─" * 50)
+        print("-" * 50)
 
     else:
         print("[!] Domain exists, but web server is not accessible")
 
-    return None
+        return False

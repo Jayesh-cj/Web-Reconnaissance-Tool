@@ -20,7 +20,7 @@ def dns_records(target):
     ]
 
     print("\n[+] DNS Records")
-    print("─" * 50)
+    print("-" * 50)
 
     for type in record_types:
 
@@ -60,4 +60,4 @@ def dns_records(target):
         except dns.exception.DNSException as e:
             print(f"\n[-] {type} lookup failed: {e}")
 
-    print("\n" + "─" * 50)
+    print("\n" + "-" * 50)

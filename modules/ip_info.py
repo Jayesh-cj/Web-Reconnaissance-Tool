@@ -4,7 +4,7 @@ import socket
 # Get ip information
 def get_ip_info(target):
     print("\n[+] IP Address Information")
-    print("─" * 50)
+    print("-" * 50)
 
     try:
         data = socket.getaddrinfo(target, None, socket.AF_UNSPEC, socket.SOCK_STREAM)
