@@ -1,5 +1,6 @@
 import argparse
 
+from modules.banner import print_banner
 from modules.dns_enum import dns_records
 from modules.domain import check_target
 from modules.headers import get_security_headers
@@ -82,6 +83,7 @@ def main():
             return
         
         else:
+            print_banner()
             check_target(args.target)
             print()
 
@@ -93,52 +95,33 @@ def main():
 
             return
         
+        print_banner()
+
+        check_target(args.target)
+        print()
+
         if args.whois:
-            check_target(args.target)
-            print()
-
             get_whois_data(args.target)
 
-        elif args.dns:
-            check_target(args.target)
-            print()
-
+        if args.dns:
             dns_records(args.target)
 
-        elif args.ip:
-            check_target(args.target)
-            print()
-
+        if args.ip:
             get_ip_info(args.target)
 
-        elif args.headers:
-            check_target(args.target)
-            print()
-
+        if args.headers:
             get_security_headers(args.target)
 
-        elif args.ssl:
-            check_target(args.target)
-            print()
-
+        if args.ssl:
             ssl_certificate(args.target)
 
-        elif args.robots:
-            check_target(args.target)
-            print()
-
+        if args.robots:
             check_robots(args.target)
 
-        elif args.sitemap:
-            check_target(args.target)
-            print()
-
+        if args.sitemap:
             check_sitemap(args.target)
 
-        elif args.all:
-            check_target(args.target)
-            print()
-
+        if args.all:
             get_whois_data(args.target)
             print()
 
@@ -158,9 +141,6 @@ def main():
             print()
 
             check_sitemap(args.target)
-
-        else:
-            parser.print_help()
 
 
 if __name__ == "__main__":

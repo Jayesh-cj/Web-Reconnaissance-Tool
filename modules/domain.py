@@ -62,8 +62,7 @@ def check_http(target):
 
 # Finalize target info
 def check_target(target):
-    print_banner()
-    
+
     try:
         domain = sanitize_domain(target)
 
