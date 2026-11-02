@@ -1,8 +1,6 @@
 import textwrap
 
 import requests
-from icecream.icecream import ic
-
 
 def print_header_value(value, width=100):
 
@@ -35,9 +33,11 @@ def get_security_headers(target):
 
     try:
         response = requests.get(url, timeout=10, allow_redirects=True)
+        response.raise_for_status()
 
     except requests.RequestException as e:
-        print(f"[-] HTTP request failed: {e}")
+        print(f"[-] Failed to fetch HTTP headers: {e}")
+        return
 
     print("\n[+] HTTP Headers")
     print("-" * 50)

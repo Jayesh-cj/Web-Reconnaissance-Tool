@@ -80,7 +80,7 @@ def check_target(target):
 
     http_info = check_http(domain)
 
-    if check_http(domain):
+    if http_info:
         print("\n[+] Target Details")
         print("-" * 50)
 

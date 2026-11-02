@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 ## Usage
 ```bash
-./recon.py -t <target> [options]
+python3 recon.py -t <target> [options]
 ```
 
 ## Display Help
